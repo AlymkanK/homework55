@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список задач</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container">
+    <div class="py-4">
+        <h1 class="mb-4">Task List</h1>
+        <ul class="list-group">
+            {% for task in tasks %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ task.description }} - {{ task.status }} - {{ task.date }}
+            </li>
+            {% empty %}
+            <li class="list-group-item">No tasks found.</li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'add_task' %}" class="btn btn-primary mt-3">Добавить задачу</a>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
